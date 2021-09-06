@@ -13,29 +13,29 @@ const Button = ({ type, text, disabled, func }: ButtonProps) => {
   const [userName, setUserName] = useState("");
   const [response, setResponse] = useState();
 
-  const handleInput = (e :React.ChangeEvent<HTMLInputElement>) => {
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserName(e.target.value);
   };
 
   const submit = (e: any) => {
     e.preventDefault();
-     axios({
+    axios({
       method: "POST",
-      url:"/serv_back",
-      headers:{
+      url: "/serv_back",
+      headers: {
         "Content-Type": "application/json",
       },
       data: {
         name: userName,
-      }
+      },
     })
-    .then(res => {
-      setResponse(res.data)
-      console.log(res.data);
-    })
-    .catch(err => {
-      console.log(err)
-    });
+      .then((res) => {
+        setResponse(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
