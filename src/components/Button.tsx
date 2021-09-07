@@ -14,7 +14,7 @@ const Button = ({ type, text, disabled, func }: ButtonProps) => {
   const [response, setResponse] = useState();
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserName(e.target.value);
+    setUserName(e.target.value)
   };
 
   const submit = (e: React.MouseEvent<HTMLInputElement>) => {
