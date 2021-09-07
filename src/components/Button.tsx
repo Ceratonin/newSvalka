@@ -17,7 +17,7 @@ const Button = ({ type, text, disabled, func }: ButtonProps) => {
     setUserName(e.target.value);
   };
 
-  const submit = (e: any) => {
+  const submit = (e: React.MouseEvent<HTMLInputElement>) => {
     e.preventDefault();
     axios({
       method: "POST",
@@ -40,7 +40,7 @@ const Button = ({ type, text, disabled, func }: ButtonProps) => {
 
   return (
     <div>
-      <form onSubmit={submit}>
+      <form onSubmit={() => submit}>
         <h1>Ввод: </h1>
         <input type="text" onChange={handleInput} value={userName} />
 
